@@ -99,6 +99,28 @@ function explanationFor(question) {
     .join(" ");
 }
 
+function showWithItalicPrepositions(element, text) {
+  const pattern = /(?<!\p{L})(i|på|med|under|til|over|for|om)(?!\p{L})/giu;
+  let previousEnd = 0;
+
+  element.replaceChildren();
+
+  for (const match of text.matchAll(pattern)) {
+    if (match.index > previousEnd) {
+      element.append(document.createTextNode(text.slice(previousEnd, match.index)));
+    }
+
+    const italic = document.createElement("em");
+    italic.textContent = match[0];
+    element.append(italic);
+    previousEnd = match.index + match[0].length;
+  }
+
+  if (previousEnd < text.length) {
+    element.append(document.createTextNode(text.slice(previousEnd)));
+  }
+}
+
 function checkAnswer(choice) {
   if (answered) return;
   answered = true;
@@ -111,21 +133,30 @@ function checkAnswer(choice) {
     score += 1;
     elements.score.textContent = String(score);
     elements.feedbackTitle.textContent = "Riktig!";
-    elements.feedbackAnswer.textContent = hasSeveralAnswers
-      ? "Her er begge svarene mulige."
-      : `${choice} er riktig preposisjon.`;
+    showWithItalicPrepositions(
+      elements.feedbackAnswer,
+      hasSeveralAnswers
+        ? "Her er begge svarene mulige."
+        : `${choice} er riktig preposisjon.`
+    );
     elements.successImage.hidden = false;
     elements.feedback.classList.remove("no-image");
   } else {
     elements.feedbackTitle.textContent = "Ikke helt!";
-    elements.feedbackAnswer.textContent = `Riktig svar er ${question.correct.join(" eller ")}.`;
+    showWithItalicPrepositions(
+      elements.feedbackAnswer,
+      `Riktig svar er ${question.correct.join(" eller ")}.`
+    );
     elements.successImage.hidden = true;
     elements.feedback.classList.add("no-image");
   }
 
-  elements.feedbackExplanation.textContent = explanationFor(question);
+  showWithItalicPrepositions(
+    elements.feedbackExplanation,
+    explanationFor(question)
+  );
   if (question.note) {
-    elements.feedbackNote.textContent = question.note;
+    showWithItalicPrepositions(elements.feedbackNote, question.note);
     elements.feedbackNote.hidden = false;
   } else {
     elements.feedbackNote.hidden = true;

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Øv på norske preposisjoner på nivå A2.">
+    <title>Preposisjonsspillet</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="game-card" aria-labelledby="game-title">
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Norsk · nivå A2</p>
+            <h1 id="game-title">Preposisjonsspillet</h1>
+          </div>
+          <div class="score-chip" aria-live="polite">
+            <span>Poeng</span>
+            <strong id="score">0</strong>
+          </div>
+        </header>
+
+        <div id="quiz-view">
+          <div class="progress-row">
+            <p id="question-counter">Oppgave 1 av 49</p>
+            <p class="key-hint">Du kan også bruke tast 1 og 2</p>
+          </div>
+          <div
+            id="progress-track"
+            class="progress-track"
+            role="progressbar"
+            aria-label="Framdrift"
+            aria-valuemin="1"
+            aria-valuemax="49"
+            aria-valuenow="1"
+          >
+            <span id="progress-bar"></span>
+          </div>
+
+          <div class="question-area">
+            <p id="instruction" class="instruction"></p>
+            <p id="sentence" class="sentence"></p>
+            <div id="answer-buttons" class="answer-buttons" aria-label="Svaralternativer"></div>
+          </div>
+
+          <section id="feedback" class="feedback" aria-live="polite" hidden>
+            <img
+              id="success-image"
+              class="success-image"
+              src="assets/gratulerer-smiley.png"
+              alt="Et smilefjes med solbriller som viser tommel opp"
+              hidden
+            >
+            <div class="feedback-copy">
+              <h2 id="feedback-title"></h2>
+              <p id="feedback-answer" class="feedback-answer"></p>
+              <p id="feedback-explanation"></p>
+              <p id="feedback-note" class="feedback-note" hidden></p>
+              <button id="next-button" class="next-button" type="button">Neste oppgave</button>
+            </div>
+          </section>
+        </div>
+
+        <section id="result-view" class="result-view" hidden>
+          <p class="eyebrow">Ferdig!</p>
+          <h2 id="result-title">Bra jobba!</h2>
+          <p id="result-text" class="result-text"></p>
+          <button id="restart-button" class="next-button" type="button">Spill en gang til</button>
+        </section>
+      </section>
+    </main>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -26,6 +26,7 @@ let questions = [];
 let questionIndex = 0;
 let score = 0;
 let answered = false;
+let activeChoices = [];
 
 function shuffled(items) {
   const result = [...items];
@@ -67,16 +68,17 @@ function renderSentence(text) {
 function renderQuestion() {
   const question = currentQuestion();
   answered = false;
+  activeChoices = shuffled(question.choices);
 
   elements.counter.textContent = `Oppgave ${questionIndex + 1} av ${questions.length}`;
   elements.progressTrack.setAttribute("aria-valuemax", String(questions.length));
   elements.progressTrack.setAttribute("aria-valuenow", String(questionIndex + 1));
   elements.progressBar.style.width = `${((questionIndex + 1) / questions.length) * 100}%`;
-  elements.instruction.textContent = `Velg mellom ${question.choices[0]} og ${question.choices[1]}.`;
+  elements.instruction.textContent = `Velg mellom ${activeChoices[0]} og ${activeChoices[1]}.`;
   renderSentence(question.sentence);
 
   elements.answers.replaceChildren();
-  question.choices.forEach((choice, index) => {
+  activeChoices.forEach((choice, index) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "answer-button";
@@ -99,8 +101,12 @@ function explanationFor(question) {
     .join(" ");
 }
 
-function showWithItalicPrepositions(element, text) {
-  const pattern = /(?<!\p{L})(i|på|med|under|til|over|for|om)(?!\p{L})/giu;
+function showWithItalicPrepositions(element, text, prepositions) {
+  const alternatives = prepositions.join("|");
+  const pattern = new RegExp(
+    `(?<!\\p{L})(${alternatives})(?!\\p{L})`,
+    "giu"
+  );
   let previousEnd = 0;
 
   element.replaceChildren();
@@ -137,7 +143,8 @@ function checkAnswer(choice) {
       elements.feedbackAnswer,
       hasSeveralAnswers
         ? "Her er begge svarene mulige."
-        : `${choice} er riktig preposisjon.`
+        : `${choice} er riktig preposisjon.`,
+      question.correct
     );
     elements.successImage.hidden = false;
     elements.feedback.classList.remove("no-image");
@@ -145,7 +152,8 @@ function checkAnswer(choice) {
     elements.feedbackTitle.textContent = "Ikke helt!";
     showWithItalicPrepositions(
       elements.feedbackAnswer,
-      `Riktig svar er ${question.correct.join(" eller ")}.`
+      `Riktig svar er ${question.correct.join(" eller ")}.`,
+      question.correct
     );
     elements.successImage.hidden = true;
     elements.feedback.classList.add("no-image");
@@ -153,10 +161,15 @@ function checkAnswer(choice) {
 
   showWithItalicPrepositions(
     elements.feedbackExplanation,
-    explanationFor(question)
+    explanationFor(question),
+    question.correct
   );
   if (question.note) {
-    showWithItalicPrepositions(elements.feedbackNote, question.note);
+    showWithItalicPrepositions(
+      elements.feedbackNote,
+      question.note,
+      question.correct
+    );
     elements.feedbackNote.hidden = false;
   } else {
     elements.feedbackNote.hidden = true;
@@ -212,7 +225,7 @@ document.addEventListener("keydown", event => {
   }
 
   if (!answered && (event.key === "1" || event.key === "2")) {
-    const choice = currentQuestion().choices[Number(event.key) - 1];
+    const choice = activeChoices[Number(event.key) - 1];
     checkAnswer(choice);
   }
 });

@@ -360,9 +360,12 @@ const PREPOSITION_QUESTIONS = [
     id: 48,
     choices: ["om", "i"],
     sentence: "Hun hadde et belte ___ livet.",
-    correct: ["om"],
-    explanations: { om: "Om livet betyr at beltet var rundt livet hennes." },
-    note: "Et belte rundt livet er også naturlig og ofte vanligere."
+    correct: ["om", "i"],
+    explanations: {
+      om: "Med om legger setningen vekt på at beltet gikk rundt livet hennes.",
+      i: "Med i viser setningen hvor beltet satt på kroppen."
+    },
+    note: "Begge svarene er naturlige. Om framhever tydeligere at beltet går rundt livet, mens i framhever plasseringen ved livet. Et belte rundt livet er også naturlig og vanlig."
   },
   {
     id: 49,
@@ -371,5 +374,388 @@ const PREPOSITION_QUESTIONS = [
     correct: ["om"],
     explanations: { om: "Armene om venninnen betyr at armene var rundt henne." },
     note: "Armene rundt venninnen er også naturlig og ofte vanligere."
+  },
+  {
+    id: 50,
+    choices: ["i", "på"],
+    sentence: "Nøklene ligger ___ veska, helt nederst.",
+    correct: ["i"],
+    explanations: { i: "Nøklene ligger inni veska, nederst i den." }
+  },
+  {
+    id: 51,
+    choices: ["på", "i"],
+    sentence: "Møtet er ___ mandag.",
+    correct: ["på"],
+    explanations: { på: "Vi bruker på foran ukedager." }
+  },
+  {
+    id: 52,
+    choices: ["i", "om"],
+    sentence: "Vi bodde der ___ to år.",
+    correct: ["i"],
+    explanations: { i: "I to år forteller hvor lenge vi bodde der." }
+  },
+  {
+    id: 53,
+    choices: ["om", "i"],
+    sentence: "Toget går ___ fem minutter.",
+    correct: ["om"],
+    explanations: { om: "Om fem minutter betyr fem minutter fra nå." }
+  },
+  {
+    id: 54,
+    choices: ["på", "til"],
+    sentence: "Han arbeider ___ sykehuset.",
+    correct: ["på"],
+    explanations: { på: "På sykehuset er det vanlige uttrykket når sykehuset er arbeidsstedet." }
+  },
+  {
+    id: 55,
+    choices: ["med", "til"],
+    sentence: "Hun kom på festen ___ broren sin.",
+    correct: ["med"],
+    explanations: { med: "Med viser at hun og broren kom sammen." }
+  },
+  {
+    id: 56,
+    choices: ["med", "for"],
+    sentence: "Vi malte veggen ___ en stor pensel.",
+    correct: ["med"],
+    explanations: { med: "Penselen er redskapet vi brukte til å male veggen." }
+  },
+  {
+    id: 57,
+    choices: ["med", "om"],
+    sentence: "De reiste ___ fly.",
+    correct: ["med"],
+    explanations: { med: "Med fly forteller hvilket transportmiddel de brukte." }
+  },
+  {
+    id: 58,
+    choices: ["med", "for"],
+    sentence: "Jeg bestilte en salat ___ kylling.",
+    correct: ["med"],
+    explanations: { med: "Med kylling forteller hva salaten inneholder." }
+  },
+  {
+    id: 59,
+    choices: ["til", "på"],
+    sentence: "Hun syklet ___ butikken.",
+    correct: ["til"],
+    explanations: { til: "Butikken er målet for bevegelsen." }
+  },
+  {
+    id: 60,
+    choices: ["til", "med"],
+    sentence: "Denne gaven er ___ deg.",
+    correct: ["til"],
+    explanations: { til: "Til deg viser hvem som skal få gaven." },
+    note: "Denne gaven er for deg kan også være naturlig. Da framhever for gjerne hvem gaven er ment for."
+  },
+  {
+    id: 61,
+    choices: ["til", "for"],
+    sentence: "Jeg sendte en e-post ___ sjefen.",
+    correct: ["til"],
+    explanations: { til: "Sjefen er mottakeren av e-posten." }
+  },
+  {
+    id: 62,
+    choices: ["til", "om"],
+    sentence: "Biblioteket er åpent ___ klokka seks.",
+    correct: ["til"],
+    explanations: { til: "Til klokka seks viser når åpningstida slutter." }
+  },
+  {
+    id: 63,
+    choices: ["til", "med"],
+    sentence: "Denne boksen brukes ___ oppbevaring av mat.",
+    correct: ["til"],
+    explanations: { til: "Til oppbevaring forteller hva boksen brukes til." }
+  },
+  {
+    id: 64,
+    choices: ["over", "under"],
+    sentence: "Et helikopter fløy ___ huset.",
+    correct: ["over"],
+    explanations: { over: "Helikopteret fløy høyere enn huset." }
+  },
+  {
+    id: 65,
+    choices: ["over", "under"],
+    sentence: "Temperaturen var 23 grader. Den lå ___ 20 grader.",
+    correct: ["over"],
+    explanations: { over: "23 grader er mer enn 20 grader." }
+  },
+  {
+    id: 66,
+    choices: ["om", "i"],
+    sentence: "Hun hadde et skjerf ___ halsen.",
+    correct: ["om", "i"],
+    explanations: {
+      om: "Om halsen legger vekt på at skjerfet gikk rundt halsen.",
+      i: "I halsen viser hvor skjerfet satt."
+    },
+    note: "Begge svarene er naturlige. Rundt halsen er også et vanlig alternativ."
+  },
+  {
+    id: 67,
+    choices: ["under", "over"],
+    sentence: "Sekken lå ___ setet foran meg.",
+    correct: ["under"],
+    explanations: { under: "Sekken lå lavere enn setet." }
+  },
+  {
+    id: 68,
+    choices: ["under", "om"],
+    sentence: "Det begynte å regne ___ kampen.",
+    correct: ["under"],
+    explanations: { under: "Regnet begynte mens kampen pågikk." }
+  },
+  {
+    id: 69,
+    choices: ["for", "om"],
+    sentence: "Denne jakka er ___ barn.",
+    correct: ["for"],
+    explanations: { for: "For barn viser hvem jakka er beregnet på." }
+  },
+  {
+    id: 70,
+    choices: ["for", "til"],
+    sentence: "Hun fikk ros ___ innsatsen.",
+    correct: ["for"],
+    explanations: { for: "For innsatsen viser hvorfor hun fikk ros." }
+  },
+  {
+    id: 71,
+    choices: ["for", "til"],
+    sentence: "Han solgte sykkelen ___ 800 kroner.",
+    correct: ["for"],
+    explanations: { for: "For 800 kroner forteller hva prisen var." }
+  },
+  {
+    id: 72,
+    choices: ["for", "i"],
+    sentence: "De flyttet hit ___ fem år siden.",
+    correct: ["for"],
+    explanations: { for: "For fem år siden viser hvor lenge det er siden de flyttet hit." }
+  },
+  {
+    id: 73,
+    choices: ["om", "i"],
+    sentence: "Filmen handler ___ en familie i Oslo.",
+    correct: ["om"],
+    explanations: { om: "Om viser hva filmen har som tema." }
+  },
+  {
+    id: 74,
+    choices: ["om", "på"],
+    sentence: "Vi møtes én gang ___ måneden.",
+    correct: ["om"],
+    explanations: { om: "Én gang om måneden forteller hvor ofte vi møtes." },
+    note: "Én gang i måneden er også naturlig, men i er ikke et av svaralternativene her."
+  },
+  {
+    id: 75,
+    choices: ["på", "med"],
+    sentence: "Prisen ___ billetten har økt.",
+    correct: ["på"],
+    explanations: { på: "Prisen på billetten forteller om en egenskap ved billetten." }
+  },
+  {
+    id: 76,
+    choices: ["i", "på"],
+    sentence: "Hun har jobbet lenge ___ helsevesenet.",
+    correct: ["i"],
+    explanations: { i: "I helsevesenet viser til helsevesenet som samfunnsområde eller system." }
+  },
+  {
+    id: 77,
+    choices: ["over", "på"],
+    sentence: "Vi gikk ___ brua til den andre siden.",
+    correct: ["over", "på"],
+    explanations: {
+      over: "Over brua framhever at vi gikk fra den ene siden til den andre.",
+      på: "På brua framhever at vi befant oss på brua mens vi gikk."
+    },
+    note: "Begge svarene er naturlige, men de framhever ulike sider ved situasjonen."
+  },
+  {
+    id: 78,
+    choices: ["over", "med"],
+    sentence: "Bjarte listet seg ___ gulvet.",
+    correct: ["over"],
+    explanations: { over: "Over gulvet viser at Bjarte beveget seg forsiktig fra ett sted til et annet på gulvet." }
+  },
+  {
+    id: 79,
+    choices: ["på", "til"],
+    sentence: "Elevene var sinte ___ læreren.",
+    correct: ["på"],
+    explanations: { på: "Sint på er en fast forbindelse." }
+  },
+  {
+    id: 80,
+    choices: ["over", "mellom"],
+    sentence: "Trekkfuglene fløy i en stor rekke ___ byen.",
+    correct: ["over"],
+    explanations: { over: "Fuglene fløy høyere enn byen." }
+  },
+  {
+    id: 81,
+    choices: ["mellom", "under"],
+    sentence: "Møtet varer ___ to og tre timer.",
+    correct: ["mellom"],
+    explanations: { mellom: "Mellom to og tre timer viser et tidsrom med en nedre og en øvre grense." }
+  },
+  {
+    id: 82,
+    choices: ["av", "til"],
+    sentence: "Han var full ___ raseri.",
+    correct: ["av"],
+    explanations: { av: "Full av raseri betyr at han kjente svært sterkt raseri." }
+  },
+  {
+    id: 83,
+    choices: ["mellom", "med"],
+    sentence: "Sjokoladen lå klemt ___ de to sofaputene.",
+    correct: ["mellom"],
+    explanations: { mellom: "Sjokoladen lå med én sofapute på hver side." }
+  },
+  {
+    id: 84,
+    choices: ["av", "med"],
+    sentence: "Glasset var fullt ___ brus.",
+    correct: ["av", "med"],
+    explanations: {
+      av: "Fullt av brus beskriver at glasset inneholdt mye brus.",
+      med: "Fullt med brus er også naturlig og legger tydelig vekt på innholdet i glasset."
+    },
+    note: "Begge svarene er naturlige i denne setningen."
+  },
+  {
+    id: 85,
+    choices: ["av", "med"],
+    sentence: "Stolen er laget helt ___ plast.",
+    correct: ["av"],
+    explanations: { av: "Av plast forteller hvilket materiale stolen er laget av." }
+  },
+  {
+    id: 86,
+    choices: ["av", "mellom"],
+    sentence: "En ___ studentene kom for sent.",
+    correct: ["av"],
+    explanations: { av: "En av studentene betyr én person fra gruppa med studenter." }
+  },
+  {
+    id: 87,
+    choices: ["av", "for"],
+    sentence: "Boka ble skrevet ___ en norsk forfatter.",
+    correct: ["av", "for"],
+    explanations: {
+      av: "Med av er den norske forfatteren personen som skrev boka.",
+      for: "Med for ble boka skrevet på vegne av eller til hjelp for en norsk forfatter."
+    },
+    note: "Begge setningene er grammatiske, men de forteller noe forskjellig om forfatterens rolle."
+  },
+  {
+    id: 88,
+    choices: ["av", "med"],
+    sentence: "Hun skalv ___ kulde.",
+    correct: ["av"],
+    explanations: { av: "Av kulde viser hvorfor hun skalv." }
+  },
+  {
+    id: 89,
+    choices: ["av", "for"],
+    sentence: "Jeg ønsker meg sol. Jeg er lei ___ regnet.",
+    correct: ["av"],
+    explanations: { av: "Lei av er en fast forbindelse." }
+  },
+  {
+    id: 90,
+    choices: ["mellom", "under"],
+    sentence: "Sykkelen står ___ bilen og veggen.",
+    correct: ["mellom"],
+    explanations: { mellom: "Sykkelen står med bilen på den ene siden og veggen på den andre." }
+  },
+  {
+    id: 91,
+    choices: ["mellom", "over"],
+    sentence: "Vi må velge ___ to løsninger.",
+    correct: ["mellom"],
+    explanations: { mellom: "Mellom brukes når vi velger blant to eller flere alternativer." }
+  },
+  {
+    id: 92,
+    choices: ["mellom", "under"],
+    sentence: "Butikken er stengt ___ klokka ett og to.",
+    correct: ["mellom"],
+    explanations: { mellom: "Mellom klokka ett og to viser tidsrommet fra ett til to." }
+  },
+  {
+    id: 93,
+    choices: ["mellom", "av"],
+    sentence: "Hva er forskjellen ___ i og på?",
+    correct: ["mellom"],
+    explanations: { mellom: "Vi bruker uttrykket forskjellen mellom når vi sammenligner to eller flere ting." }
+  },
+  {
+    id: 94,
+    choices: ["mellom", "med"],
+    sentence: "Hun satt ___ foreldrene sine.",
+    correct: ["mellom", "med"],
+    explanations: {
+      mellom: "Med mellom satt hun med én forelder på hver side.",
+      med: "Med med satt hun sammen med foreldrene sine."
+    },
+    note: "Begge svarene er naturlige, men mellom beskriver plasseringen mer presist."
+  },
+  {
+    id: 95,
+    choices: ["mellom", "under"],
+    sentence: "Hunden stilte seg ___ meg og døra.",
+    correct: ["mellom"],
+    explanations: { mellom: "Mellom viser at hunden sto med meg på den ene siden og døra på den andre." }
+  },
+  {
+    id: 96,
+    choices: ["mellom", "med"],
+    sentence: "Hun delte kaka ___ de fire barna.",
+    correct: ["mellom", "med"],
+    explanations: {
+      mellom: "Med mellom fordelte hun kaka slik at barna fikk hver sin del.",
+      med: "Med med spiste eller delte hun kaka sammen med barna."
+    },
+    note: "Begge svarene er naturlige, men de beskriver ulike handlinger."
+  },
+  {
+    id: 97,
+    choices: ["mellom", "over"],
+    sentence: "Avstanden ___ Oslo og Bergen er omtrent 460 kilometer.",
+    correct: ["mellom"],
+    explanations: { mellom: "Mellom viser at vi måler avstanden fra det ene stedet til det andre." }
+  },
+  {
+    id: 98,
+    choices: ["for", "av"],
+    sentence: "Hun er redd ___ hunder.",
+    correct: ["for"],
+    explanations: { for: "Redd for er en fast forbindelse." }
+  },
+  {
+    id: 99,
+    choices: ["i", "av"],
+    sentence: "Han er interessert ___ språk.",
+    correct: ["i"],
+    explanations: { i: "Interessert i er en fast forbindelse." }
+  },
+  {
+    id: 100,
+    choices: ["til", "for"],
+    sentence: "Jeg gleder meg ___ ferien.",
+    correct: ["til"],
+    explanations: { til: "Glede seg til er en fast forbindelse." }
   }
 ];
